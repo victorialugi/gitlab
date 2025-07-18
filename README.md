@@ -59,11 +59,19 @@
 6. 
 
 ```
-Поле для вставки кода...
-....
-....
-....
-....
+workflow:
+  rules:
+    - if: '$CI_COMMIT_BRANCH'
+      when: always
+
+stages:
+  - verify
+
+verify:
+  stage: verify
+  image: alpine:latest
+  script:
+    - echo "Repository with 3 files verified successfully"
 ```
 
 `При необходимости прикрепитe сюда скриншоты
